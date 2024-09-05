@@ -7,14 +7,15 @@
 #include "fibo_it.c"
 #include "fatorial_rec.c"
 #include "fatorial_it.c"
-
+#include "somatorio_it.c"
+#include "somatorio_rec.c"
 
 int main () {
     char c;
     int n, i=0;
     time_t t1;
 
-    printf ("escolha a para fatorial, b para elevar número e c para fibonacci\n");
+    printf ("escolha a para fatorial, b para elevar número, c para fibonacci e d para somatorio\n");
     scanf ("%c", &c);
 
     if (c == 'a') {
@@ -43,6 +44,15 @@ int main () {
         printf ("Fibonacci de %d é %lld\n", n, fibo_it(n));
         printf ("Tempo de execução: %ld\n", time(NULL) - t1);
         printf ("Fibonacci de %d é %lld\n", n, fibo_rec(n));
+        printf ("Tempo de execução: %ld\n", time(NULL) - t1);
+    } else if (c == 'd') {
+        printf ("Digite um número para calcular o somatório: ");
+        scanf ("%d", &n);
+        t1 = time(NULL);
+
+        printf ("Somatório de %d é %d\n", n, somatorio_it(n));
+        printf ("Tempo de execução: %ld\n", time(NULL) - t1);
+        printf ("Somatório de %d é %d\n", n, somatorio_rec(n));
         printf ("Tempo de execução: %ld\n", time(NULL) - t1);
     } else {
         printf ("Opção inválida\n");
